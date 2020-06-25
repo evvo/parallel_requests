@@ -1,7 +1,7 @@
 # parallel_requests
 
 Parallel requests is an example of a small application for making parallel requests
-agains URLs and collecting the information for their statuses.
+for URLs and collecting the information for their statuses.
 
 The application is using the Crystal language (still beta at the time of writing) multi-threading features.
 
