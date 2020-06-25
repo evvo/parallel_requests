@@ -3,7 +3,7 @@
 Parallel requests is an example of a small application for making parallel requests
 for URLs and collecting the information for their statuses.
 
-The application is using the Crystal language (still beta at the time of writing) multi-threading features.
+The application can use the Crystal language (still beta at the time of writing) multithreading features.
 
 ## Installation
 
@@ -35,13 +35,13 @@ shards build --production
 
 ## Usage
 
-The application creates 2 fibers - one for fetching the records from the database in batches and one for receiving these records and processing them. 
+The application creates 2 fibers - one for fetching the records from the database in batches and one for receiving these records and processing them.
 
 After the second fiber receives the jobs, it will spawn a new fiber for each job and to process it. 
 
 After certain record is processed, it's result is received from the results_channel and saved to the database.
 
-Since the used database is SQlite, there are some database locks situations that needs to be handled.
+Since the used database (at the moment) is SQlite, there are some database locks situations that needs to be handled.
 
 ## How it works ?
 
