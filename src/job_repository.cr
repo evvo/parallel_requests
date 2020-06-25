@@ -20,13 +20,17 @@ module ParallelRequests
 
     # That is needed on SQLite database, as the database might
     # be locked when the request is made
-    def self.wait_for_lock (proc)
+    def self.wait_for_lock(proc)
       loop do
         begin
           proc.call
           break
         rescue ex
           puts ex
+          if ex.message != "database is locked"
+            raise ex
+          end
+
           sleep 0.5
         end
       end
@@ -43,6 +47,5 @@ module ParallelRequests
         end
       })
     end
-
   end
 end

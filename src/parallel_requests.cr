@@ -3,9 +3,9 @@ require "sqlite3"
 require "./*"
 
 module ParallelRequests
-  VERSION = "0.1.0"
-  DATABASE_PATH = "sqlite3:./data.db"
-  MAX_TIMEOUT = 30.seconds
+  VERSION            = "0.1.0"
+  DATABASE_PATH      = "sqlite3:./data.db"
+  MAX_TIMEOUT        = 30.seconds
   MAX_BATCH_REQUESTS = 10
   extend self
 
@@ -50,5 +50,4 @@ module ParallelRequests
       puts ex
     end
   end
-
 end
