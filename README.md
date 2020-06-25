@@ -33,11 +33,11 @@ Production build
 shards build --production
 ```
 
-## Usage
+## Architecture
 
 The application creates 2 fibers - one for fetching the records from the database in batches and one for receiving these records and processing them.
 
-After the second fiber receives the jobs, it will spawn a new fiber for each job and to process it. 
+After the second fiber receives the jobs, it will spawn a new fiber for each job, which will process it.
 
 After certain record is processed, it's result is received from the results_channel and saved to the database.
 
